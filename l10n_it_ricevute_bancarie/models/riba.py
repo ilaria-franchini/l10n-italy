@@ -113,6 +113,7 @@ class RibaList(models.Model):
         default=lambda self: fields.Date.context_today(self),
         help="Keep empty to use the current date")
 
+
     @api.multi
     def unlink(self):
         for riba_list in self:
@@ -125,9 +126,10 @@ class RibaList(models.Model):
 
     @api.multi
     def confirm(self):
-        for list in self:
-            for line in list.line_ids:
-                line.confirm()
+        if self.config_id.close_partner:
+            for list in self:
+                for line in list.line_ids:
+                    line.confirm()
 
     @api.multi
     def riba_new(self):

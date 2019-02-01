@@ -73,6 +73,7 @@ class RibaConfiguration(orm.Model):
             domain=[('type', '=', 'receivable')]),
         'protest_charge_account_id': fields.many2one(
             'account.account', "Protest charge account"),
+        'close_partner': fields.boolean("Close partner")
     }
 
     def get_default_value_by_list(self, cr, uid, field_name, context=None):

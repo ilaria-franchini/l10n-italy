@@ -13,6 +13,7 @@
                         <field name="name" />
                         <field name="type" />
                         <field name="bank_id" />
+                        <field name="close_partner"/>
                         <field name="company_id"  widget="selection" groups="base.group_multi_company"/>
                     </group>
                     <group string="Salvo buon fine" attrs="{'invisible': [('type','!=','sbf')]}" colspan="4" col="4">
